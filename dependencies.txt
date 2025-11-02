@@ -3,7 +3,7 @@ v   express@4.19.2
 v   express-async-errors@3.1.
 v   zod@3.21.8
 v   bcrypt@5.1.1
-    jsonwebtoken@9.0.2
+v   jsonwebtoken@9.0.2
 
 devDependencies:
 v   @types/express@4.17.21
@@ -12,4 +12,4 @@ v   @types/node@20.14.12
 v   tsx@4.16.2
 v   prisma@5.19.1
 v   @types/bcrypt@5.0.2
-    @types/jsonwebtoken@9.0.6
+v   @types/jsonwebtoken@9.0.6
