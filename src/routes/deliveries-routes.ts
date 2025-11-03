@@ -5,12 +5,30 @@ import { UserRole } from "@prisma/client"
 
 import { ensureAuthenticated } from "@/middlewares/ensure-authenticated"
 import { verifyUserAuthorization } from "@/middlewares/verify-user-authorization"
+import { AdminDeliveriesController } from "@/controllers/admin-deliveries-controller"
 
 const deliveriesRoutes = Router()
 const deliveriesController = new DeliveriesController()
+const adminDeliveriesController = new AdminDeliveriesController()
 
-deliveriesRoutes.use(ensureAuthenticated, verifyUserAuthorization([UserRole.admin, UserRole.sale]))
+deliveriesRoutes.use(ensureAuthenticated)
 
-deliveriesRoutes.post("/", deliveriesController.create)
+// Any user
+deliveriesRoutes.get("/", deliveriesController.index)
+
+// Sale/Admin
+deliveriesRoutes.post(
+    "/", 
+    verifyUserAuthorization([UserRole.admin, UserRole.sale]), 
+    deliveriesController.create
+)
+deliveriesRoutes.patch(
+    "/:delivery_id/status", 
+    verifyUserAuthorization([UserRole.admin, UserRole.sale]), 
+    deliveriesController.update
+)
+
+// Admin only
+deliveriesRoutes.get("/admin", verifyUserAuthorization([UserRole.admin]), adminDeliveriesController.index)
 
 export { deliveriesRoutes }
