@@ -14,7 +14,11 @@ const adminDeliveriesController = new AdminDeliveriesController()
 deliveriesRoutes.use(ensureAuthenticated)
 
 // Any user
-deliveriesRoutes.get("/", deliveriesController.index)
+deliveriesRoutes.get(
+    "/",
+    verifyUserAuthorization([UserRole.admin, UserRole.sale, UserRole.customer]),
+    deliveriesController.index
+)
 
 // Sale/Admin
 deliveriesRoutes.post(
