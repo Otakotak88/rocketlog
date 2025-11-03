@@ -2,7 +2,7 @@ import { Request, Response } from "express";
 import { prisma } from "@/database/prisma";
 import { z } from "zod"
 import { AppError } from "@/utils/app-error";
-import { DeliveryStatus } from "@prisma/client";
+import { DeliveryStatus, UserRole } from "@prisma/client";
 
 class DeliveriesController{
     async create(request: Request, response: Response){
@@ -34,11 +34,27 @@ class DeliveriesController{
     }
 
     async index(request: Request, response: Response){
-        const user_id = request.user?.id
+
+        if(request.user?.role === UserRole.customer){
+            const user_id = request.user?.id
+
+            const deliveries = await prisma.delivery.findMany({
+                where: {
+                    userId: user_id
+                }
+            })
+            return response.json(deliveries)
+        }
 
         const deliveries = await prisma.delivery.findMany({
-            where: {
-                userId: user_id
+            include: {
+                user: {
+                    select: {
+                        id: true,
+                        name: true,
+                        email: true,
+                    }
+                }
             }
         })
 
