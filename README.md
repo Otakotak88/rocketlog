@@ -1,0 +1,37 @@
+# Rocketlog
+
+Foi um projeto da RocketSeat onde o objetivo final era criar uma API de entregas, onde é possível a autenticação e autorização do usuário, criação, verificação de entregas e logs de uma entrega.
+
+## Funcionalidades
+Customer
+- Cadastro de usuários
+- Autenticação do usuário
+- Mostrar entregas do usuário
+- Exibir logs de uma entrega
+
+Sale/Admin
+- Autenticação do usuário
+- Criar, atualizar e exibir todas entregas
+- Criar logs para uma entrega
+
+## Tecnologias
+- Node.js
+- Express.js
+- Postgresql
+- Typescript
+- Prisma
+- jest
+- jsonwebtoken 
+- zod
+
+## Guia de instalação
+git clone https://github.com/Otakotak88/rocketlog <br>
+cd rocketlog <br>
+npm install
+
+## Testes
+Antes de rodar os testes é necessário um banco de dados postgresql rodando, use o comando: <br>
+docker-compose up -d
+
+Para rodar os testes é necessário rodar o comando: <br>
+npm run test:dev
