@@ -13,3 +13,9 @@ v   tsx@4.16.2
 v   prisma@5.19.1
 v   @types/bcrypt@5.0.2
 v   @types/jsonwebtoken@9.0.6
+v   jest@29.7.0
+v   @types/jest@29.5.13
+v   ts-jest@29.2.5
+v   supertest@7.0.0
+v   @types/supertest@6.0.2
+v   ts-node@10.9.2
