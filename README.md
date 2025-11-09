@@ -3,16 +3,26 @@
 Foi um projeto da RocketSeat onde o objetivo final era criar uma API de entregas, onde é possível a autenticação e autorização do usuário, criação, verificação de entregas e logs de uma entrega.
 
 ## Funcionalidades
-Customer
-- Cadastro de usuários
+- Cadastro de usuários com papel customer
 - Autenticação do usuário
+
+### Necessário Autenticação:
+Customer
 - Mostrar entregas do usuário
 - Exibir logs de uma entrega
 
-Sale/Admin
-- Autenticação do usuário
+Sale
+- Mostrar entregas do usuário
+- Exibir logs de uma entrega
 - Criar, atualizar e exibir todas entregas
 - Criar logs para uma entrega
+
+Admin
+- Cadastro de usuários de qualquer papel
+- Criar, atualizar e exibir todas entregas
+- Criar logs para uma entrega
+- Mostrar entregas do usuário
+- Exibir logs de uma entrega
 
 ## Tecnologias
 - Node.js
